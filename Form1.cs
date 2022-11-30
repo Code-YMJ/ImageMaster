@@ -22,6 +22,8 @@ namespace ImageMaster
             Sobel,
             Laplace
         }
+        private double ratio = 1.0;
+        private float ratio_c = 0f;
         public frmImageMaster()
         {
             InitializeComponent();
@@ -90,6 +92,10 @@ namespace ImageMaster
 
         private void lsbPicture_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(pbOrigin.Image != null)
+            {
+                pbOrigin.Image.Dispose();
+            }
             selectedPicture = lsbPicture.SelectedItem.ToString();
             pbOrigin.Load(selectedPicture);
             pbOrigin.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -114,12 +120,16 @@ namespace ImageMaster
 
         private void btnClearImage_Click(object sender, EventArgs e)
         {
-            pbOrigin.Image = null;
+            pbOrigin.Image.Dispose();
             selectedPicture = string.Empty;
         }
 
         private void btnConvertImage_Click(object sender, EventArgs e)
         {
+            if(pbResult.Image != null)
+            {
+                pbResult.Image.Dispose();
+            }
             if (!string.IsNullOrWhiteSpace(selectedPicture))
             {
                 var img = ConvertImg(selectedPicture);
@@ -127,6 +137,7 @@ namespace ImageMaster
                 var retureImg = img.ToMemoryStream();
                 pbResult.Image = Bitmap.FromStream(retureImg);
                 pbResult.SizeMode = PictureBoxSizeMode.StretchImage;
+                img.Dispose();
             }
         }
         private Mat ConvertImg(string path)
@@ -232,6 +243,7 @@ namespace ImageMaster
 
         private void btnSaveAll_Click(object sender, EventArgs e)
         {
+            int i = 0;
             if (!string.IsNullOrWhiteSpace(tbSavePath.Text) && System.IO.Directory.Exists(tbSavePath.Text)&& cbExtension.SelectedIndex != -1)
             {
                 foreach(var file in lsbPicture.Items)
@@ -239,9 +251,21 @@ namespace ImageMaster
                     var selectedFile = file.ToString();
                     var img = ConvertImg(selectedFile);
 
-                    var filename = (selectedFile.Split('\\')[selectedFile.Split('\\').Length - 1]).Split('.')[0];
+                    var filename = "";
+                    if (!cbChangeName.Checked)
+                    {
+                        var buf = selectedFile.Split('\\');
+                        filename = buf[buf.Length - 1].Split('.')[0];
+
+                    }
+                    else
+                    {
+                        filename = string.Format("{0}_{1}", tbSaveFileName.Text, i++);
+                    }
+
                     var path = System.IO.Path.Combine(tbSavePath.Text, filename+cbExtension.SelectedItem.ToString());
                     Cv2.ImWrite(path, img);
+                    img.Dispose();
                 }
             }
             else if (string.IsNullOrWhiteSpace(tbSavePath.Text))
@@ -252,6 +276,41 @@ namespace ImageMaster
             {
                 MessageBox.Show(" Choose Extension ");
             }
+            MessageBox.Show("Save Done !!!");
+
         }
+        //private void pictureBox1_MouseWheel(object sender, MouseEventArgs e)
+        //{
+        //    int lines = e.Delta * SystemInformation.MouseWheelScrollLines / 120;
+        //    PictureBox pb = (PictureBox)sender;
+
+        //    if (lines > 0)
+        //    {
+        //        ratio *= 1.1F;
+        //        if (ratio > 100.0) ratio = 100.0f;
+
+        //        imgRect.Width = (int)Math.Round(pictureBox1.Width * ratio);
+        //        imgRect.Height = (int)Math.Round(pictureBox1.Height * ratio);
+        //        imgRect.X = -(int)Math.Round(1.1F * (imgPoint.X - imgRect.X) - imgPoint.X);
+        //        imgRect.Y = -(int)Math.Round(1.1F * (imgPoint.Y - imgRect.Y) - imgPoint.Y);
+        //    }
+        //    else if (lines < 0)
+        //    {
+        //        ratio *= 0.9F;
+        //        if (ratio < 1) ratio = 1;
+
+        //        imgRect.Width = (int)Math.Round(pictureBox1.Width * ratio);
+        //        imgRect.Height = (int)Math.Round(pictureBox1.Height * ratio);
+        //        imgRect.X = -(int)Math.Round(0.9F * (imgPoint.X - imgRect.X) - imgPoint.X);
+        //        imgRect.Y = -(int)Math.Round(0.9F * (imgPoint.Y - imgRect.Y) - imgPoint.Y);
+        //    }
+
+        //    if (imgRect.X > 0) imgRect.X = 0;
+        //    if (imgRect.Y > 0) imgRect.Y = 0;
+        //    if (imgRect.X + imgRect.Width < pictureBox1.Width) imgRect.X = pictureBox1.Width - imgRect.Width;
+        //    if (imgRect.Y + imgRect.Height < pictureBox1.Height) imgRect.Y = pictureBox1.Height - imgRect.Height;
+        //    pictureBox1.Invalidate();
+        //}
+
     }
 }

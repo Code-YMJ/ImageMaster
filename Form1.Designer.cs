@@ -67,6 +67,12 @@ namespace ImageMaster
             this.cbExtension = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.cbResize = new System.Windows.Forms.CheckBox();
+            this.tbResize_y = new System.Windows.Forms.TextBox();
+            this.tbResize_x = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbSaveFileName = new System.Windows.Forms.TextBox();
+            this.cbChangeName = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbOrigin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).BeginInit();
             this.SuspendLayout();
@@ -246,7 +252,7 @@ namespace ImageMaster
             // 
             // btnSavePath
             // 
-            this.btnSavePath.Location = new System.Drawing.Point(1253, 435);
+            this.btnSavePath.Location = new System.Drawing.Point(1253, 475);
             this.btnSavePath.Name = "btnSavePath";
             this.btnSavePath.Size = new System.Drawing.Size(203, 48);
             this.btnSavePath.TabIndex = 21;
@@ -299,7 +305,7 @@ namespace ImageMaster
             // 
             // btnSaveAll
             // 
-            this.btnSaveAll.Location = new System.Drawing.Point(1253, 492);
+            this.btnSaveAll.Location = new System.Drawing.Point(1253, 532);
             this.btnSaveAll.Name = "btnSaveAll";
             this.btnSaveAll.Size = new System.Drawing.Size(467, 48);
             this.btnSaveAll.TabIndex = 27;
@@ -309,7 +315,7 @@ namespace ImageMaster
             // 
             // btnSaveOne
             // 
-            this.btnSaveOne.Location = new System.Drawing.Point(1517, 435);
+            this.btnSaveOne.Location = new System.Drawing.Point(1517, 475);
             this.btnSaveOne.Name = "btnSaveOne";
             this.btnSaveOne.Size = new System.Drawing.Size(203, 48);
             this.btnSaveOne.TabIndex = 28;
@@ -362,7 +368,7 @@ namespace ImageMaster
             // cbExtension
             // 
             this.cbExtension.FormattingEnabled = true;
-            this.cbExtension.Location = new System.Drawing.Point(1368, 404);
+            this.cbExtension.Location = new System.Drawing.Point(1588, 441);
             this.cbExtension.Name = "cbExtension";
             this.cbExtension.Size = new System.Drawing.Size(132, 21);
             this.cbExtension.TabIndex = 34;
@@ -370,17 +376,75 @@ namespace ImageMaster
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1250, 411);
+            this.label4.Location = new System.Drawing.Point(1470, 448);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 14);
             this.label4.TabIndex = 35;
             this.label4.Text = "Save Extension";
+            // 
+            // cbResize
+            // 
+            this.cbResize.AutoSize = true;
+            this.cbResize.Location = new System.Drawing.Point(949, 508);
+            this.cbResize.Name = "cbResize";
+            this.cbResize.Size = new System.Drawing.Size(71, 18);
+            this.cbResize.TabIndex = 36;
+            this.cbResize.Text = "Resize";
+            this.cbResize.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbResize.UseVisualStyleBackColor = true;
+            // 
+            // tbResize_y
+            // 
+            this.tbResize_y.Location = new System.Drawing.Point(1130, 507);
+            this.tbResize_y.Name = "tbResize_y";
+            this.tbResize_y.Size = new System.Drawing.Size(84, 23);
+            this.tbResize_y.TabIndex = 38;
+            // 
+            // tbResize_x
+            // 
+            this.tbResize_x.Location = new System.Drawing.Point(1023, 507);
+            this.tbResize_x.Name = "tbResize_x";
+            this.tbResize_x.Size = new System.Drawing.Size(80, 23);
+            this.tbResize_x.TabIndex = 37;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1250, 448);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 14);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Save filename";
+            // 
+            // tbSaveFileName
+            // 
+            this.tbSaveFileName.Location = new System.Drawing.Point(1355, 441);
+            this.tbSaveFileName.Name = "tbSaveFileName";
+            this.tbSaveFileName.Size = new System.Drawing.Size(84, 23);
+            this.tbSaveFileName.TabIndex = 41;
+            // 
+            // cbChangeName
+            // 
+            this.cbChangeName.AutoSize = true;
+            this.cbChangeName.Location = new System.Drawing.Point(1253, 406);
+            this.cbChangeName.Name = "cbChangeName";
+            this.cbChangeName.Size = new System.Drawing.Size(137, 18);
+            this.cbChangeName.TabIndex = 42;
+            this.cbChangeName.Text = "change file name";
+            this.cbChangeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbChangeName.UseVisualStyleBackColor = true;
             // 
             // frmImageMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1745, 614);
+            this.Controls.Add(this.cbChangeName);
+            this.Controls.Add(this.tbSaveFileName);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbResize_y);
+            this.Controls.Add(this.tbResize_x);
+            this.Controls.Add(this.cbResize);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbExtension);
             this.Controls.Add(this.label3);
@@ -465,6 +529,12 @@ namespace ImageMaster
         private System.Windows.Forms.ComboBox cbExtension;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.CheckBox cbResize;
+        private System.Windows.Forms.TextBox tbResize_y;
+        private System.Windows.Forms.TextBox tbResize_x;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbSaveFileName;
+        private System.Windows.Forms.CheckBox cbChangeName;
     }
 }
 

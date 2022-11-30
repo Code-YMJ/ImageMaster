@@ -1,3 +1,7 @@
+C:\Project\ImageMaster\bin\Debug\dll\x86\OpenCvSharpExtern.dll
+C:\Project\ImageMaster\bin\Debug\dll\x86\opencv_videoio_ffmpeg455.dll
+C:\Project\ImageMaster\bin\Debug\dll\x64\OpenCvSharpExtern.dll
+C:\Project\ImageMaster\bin\Debug\dll\x64\opencv_videoio_ffmpeg455_64.dll
 C:\Project\ImageMaster\bin\Debug\ImageMaster.exe.config
 C:\Project\ImageMaster\bin\Debug\ImageMaster.exe
 C:\Project\ImageMaster\bin\Debug\ImageMaster.pdb
@@ -21,7 +25,3 @@ C:\Project\ImageMaster\obj\Debug\ImageMaster.csproj.CoreCompileInputs.cache
 C:\Project\ImageMaster\obj\Debug\ImageMaster.csproj.CopyComplete
 C:\Project\ImageMaster\obj\Debug\ImageMaster.exe
 C:\Project\ImageMaster\obj\Debug\ImageMaster.pdb
-C:\Project\ImageMaster\bin\Debug\dll\x86\OpenCvSharpExtern.dll
-C:\Project\ImageMaster\bin\Debug\dll\x86\opencv_videoio_ffmpeg455.dll
-C:\Project\ImageMaster\bin\Debug\dll\x64\OpenCvSharpExtern.dll
-C:\Project\ImageMaster\bin\Debug\dll\x64\opencv_videoio_ffmpeg455_64.dll
