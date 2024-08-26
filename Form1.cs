@@ -15,7 +15,7 @@ namespace ImageMaster
     {
         private readonly string[] ImgaeExtension = new string[] { ".jpg", ".png", "jpeg", "jfif" };
         private string selectedPicture { get; set; }
-        private Mat ConvertedImg { get; set; }
+        private Mat ConvertedImg { get; set; } = new Mat();
         enum EdgeFilterType
         {
             Canny,
@@ -27,6 +27,8 @@ namespace ImageMaster
         public frmImageMaster()
         {
             InitializeComponent();
+            pbOrigin.MouseWheel += picturebox_MouseWheel;
+            pbResult.MouseWheel += picturebox_MouseWheel;
             setInitProperty();
         }
         private void setInitProperty()
@@ -133,11 +135,12 @@ namespace ImageMaster
             if (!string.IsNullOrWhiteSpace(selectedPicture))
             {
                 var img = ConvertImg(selectedPicture);
-                ConvertedImg = img;
+                img.CopyTo(ConvertedImg);
                 var retureImg = img.ToMemoryStream();
                 pbResult.Image = Bitmap.FromStream(retureImg);
                 pbResult.SizeMode = PictureBoxSizeMode.StretchImage;
                 img.Dispose();
+                Application.DoEvents();
             }
         }
         private Mat ConvertImg(string path)
@@ -146,6 +149,27 @@ namespace ImageMaster
             if (cbGray.Checked)
             {
                 Cv2.CvtColor(img, img, ColorConversionCodes.RGB2GRAY);
+            }
+
+            if (cbUseTreshold.Checked)
+            {
+                if (cbThresholdFlag.SelectedIndex != -1)
+                {
+                    if (Enum.TryParse(cbThresholdFlag.SelectedItem.ToString(), out ThresholdTypes thresholdTypes))
+                    {
+                        if (!Double.TryParse(tbThreshold.Text, out double thresh))
+                        {
+                            MessageBox.Show("Insert Threashold");
+                            return null;
+                        }
+                        if (!Double.TryParse(tbRV.Text, out double rv))
+                        {
+                            MessageBox.Show("Insert Return Value");
+                            return null;
+                        }
+                        Cv2.Threshold(img, img, thresh, rv, thresholdTypes);
+                    }
+                }
             }
 
             if (cbUseEdgeFilter.Checked)
@@ -178,7 +202,7 @@ namespace ImageMaster
                         {
                             Cv2.Laplacian(img, buf, MatType.CV_8UC1);
                         }
-                        img = buf;
+                        buf.CopyTo(img);
 
                     }
                 }
@@ -195,26 +219,7 @@ namespace ImageMaster
                     }
                 }
             }
-            if (cbUseTreshold.Checked)
-            {
-                if (cbThresholdFlag.SelectedIndex != -1)
-                {
-                    if (Enum.TryParse(cbThresholdFlag.SelectedItem.ToString(), out ThresholdTypes thresholdTypes))
-                    {
-                        if (!Double.TryParse(tbThreshold.Text, out double thresh))
-                        {
-                            MessageBox.Show("Insert Threashold");
-                            return null;
-                        }
-                        if (!Double.TryParse(tbRV.Text, out double rv))
-                        {
-                            MessageBox.Show("Insert Return Value");
-                            return null;
-                        }
-                        Cv2.Threshold(img, img, thresh, rv, thresholdTypes);
-                    }
-                }
-            }
+
             return img;
         }
         private void btnSavePath_Click(object sender, EventArgs e)
@@ -279,6 +284,45 @@ namespace ImageMaster
             MessageBox.Show("Save Done !!!");
 
         }
+        private void picturebox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta < 0)
+            {
+                ZoomIn((PictureBox)sender);
+            }
+            else
+            {
+                ZoomOut((PictureBox)sender);
+            }
+        }
+        private void ZoomIn(PictureBox pictureBox)
+        {
+            double ZOOM_FACTOR = 1.1;
+            int MIN_MAX = 5;
+
+            if ((pictureBox.Width < (MIN_MAX * pictureBox.Width)) &&
+                (pictureBox.Height < (MIN_MAX * pictureBox.Height)))
+            {
+                pictureBox.Width = Convert.ToInt32(pictureBox.Width * ZOOM_FACTOR);
+                pictureBox.Height = Convert.ToInt32(pictureBox.Height * ZOOM_FACTOR);
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+        }
+
+        private void ZoomOut(PictureBox pictureBox)
+        {
+            double ZOOM_FACTOR = 1.1;
+            int MIN_MAX = 5;
+
+            if ((pictureBox.Width > (pictureBox.Width / MIN_MAX)) &&
+                (pictureBox.Height > (pictureBox.Height / MIN_MAX)))
+            {
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox.Width = Convert.ToInt32(pictureBox.Width / ZOOM_FACTOR);
+                pictureBox.Height = Convert.ToInt32(pictureBox.Height / ZOOM_FACTOR);
+            }
+        }
+
         //private void pictureBox1_MouseWheel(object sender, MouseEventArgs e)
         //{
         //    int lines = e.Delta * SystemInformation.MouseWheelScrollLines / 120;

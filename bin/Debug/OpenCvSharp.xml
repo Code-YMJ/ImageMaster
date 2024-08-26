@@ -1677,7 +1677,7 @@
             <param name="scale">The optional scale factor. [By default this is 1]</param>
             <param name="dtype"></param>
         </member>
-        <member name="M:OpenCvSharp.Cv2.Divide(OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.OutputArray,System.Double,System.Int32)">
+        <member name="M:OpenCvSharp.Cv2.Divide(OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.OutputArray,System.Double,System.Nullable{OpenCvSharp.MatType})">
             <summary>
             Performs per-element division of two arrays or a scalar by an array.
             </summary>
@@ -1876,6 +1876,26 @@
             the destination array will have the same type as src, 
             otherwise it will have the same number of channels as src and the depth =CV_MAT_DEPTH(rtype)</param>
             <param name="mask">The optional operation mask</param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.ReduceArgMax(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,System.Int32,System.Boolean)">
+            <summary>
+            Finds indices of max elements along provided axis
+            </summary>
+            <param name="src">Input single-channel array</param>
+            <param name="dst">Output array of type CV_32SC1 with the same dimensionality as src,
+            except for axis being reduced - it should be set to 1.</param>
+            <param name="axis">Axis to reduce along</param>
+            <param name="lastIndex">Whether to get the index of first or last occurrence of max</param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.ReduceArgMin(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,System.Int32,System.Boolean)">
+            <summary>
+            Finds indices of min elements along provided axis
+            </summary>
+            <param name="src">Input single-channel array</param>
+            <param name="dst">Output array of type CV_32SC1 with the same dimensionality as src,
+            except for axis being reduced - it should be set to 1.</param>
+            <param name="axis">Axis to reduce along</param>
+            <param name="lastIndex">Whether to get the index of first or last occurrence of min</param>
         </member>
         <member name="M:OpenCvSharp.Cv2.MinMaxLoc(OpenCvSharp.InputArray,System.Double@,System.Double@)">
             <summary>
@@ -2764,14 +2784,6 @@
             <param name="val"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Cv2.Glob(System.String,System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="pattern"></param>
-            <param name="recursive"></param>
-            <returns></returns>
-        </member>
         <member name="M:OpenCvSharp.Cv2.SetNumThreads(System.Int32)">
             <summary>
             OpenCV will try to set the number of threads for the next parallel region.
@@ -2963,6 +2975,19 @@
             <param name="mtx"></param>
             <param name="format"></param>
             <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.SetLogLevel(OpenCvSharp.LogLevel)">
+            <summary>
+            Set global logging level
+            </summary>
+            <param name="logLevel">logging level</param>
+            <returns>previous logging level</returns>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.GetLogLevel">
+            <summary>
+            Get global logging level
+            </summary>
+            <returns>logging level</returns>
         </member>
         <member name="M:OpenCvSharp.Cv2.Abs(OpenCvSharp.Mat)">
             <summary>
@@ -4086,7 +4111,7 @@
             <param name="interpolationFlags">interpolation methods.</param>
             <param name="warpPolarMode">interpolation methods.</param>
         </member>
-        <member name="M:OpenCvSharp.Cv2.Integral(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,System.Int32)">
+        <member name="M:OpenCvSharp.Cv2.Integral(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,System.Nullable{OpenCvSharp.MatType})">
             <summary>
             Calculates the integral of an image.
             The function calculates one or more integral images for the source image.
@@ -4095,7 +4120,7 @@
             <param name="sum"></param>
             <param name="sdepth"></param>
         </member>
-        <member name="M:OpenCvSharp.Cv2.Integral(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,System.Int32)">
+        <member name="M:OpenCvSharp.Cv2.Integral(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,System.Nullable{OpenCvSharp.MatType})">
             <summary>
             Calculates the integral of an image.
             The function calculates one or more integral images for the source image.
@@ -4105,7 +4130,7 @@
             <param name="sqsum"></param>
             <param name="sdepth"></param>
         </member>
-        <member name="M:OpenCvSharp.Cv2.Integral(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,System.Int32,System.Int32)">
+        <member name="M:OpenCvSharp.Cv2.Integral(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,System.Nullable{OpenCvSharp.MatType},System.Nullable{OpenCvSharp.MatType})">
             <summary>
             Calculates the integral of an image.
             The function calculates one or more integral images for the source image.
@@ -4207,6 +4232,15 @@
             <param name="dst">output image; it has the specified size and the same type as src.</param>
             <param name="dstSize">size of the output image; by default, it is computed as Size((src.cols+1)/2</param>
             <param name="borderType"></param>
+        </member>
+        <member name="M:OpenCvSharp.Cv2.BuildPyramid(OpenCvSharp.InputArray,OpenCvSharp.Internal.Vectors.VectorOfMat,System.Int32,OpenCvSharp.BorderTypes)">
+            <summary> 
+            </summary>
+            <param name="src"></param>
+            <param name="dst"></param>
+            <param name="maxlevel"></param>
+            <param name="borderType"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:OpenCvSharp.Cv2.PyrUp(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,System.Nullable{OpenCvSharp.Size},OpenCvSharp.BorderTypes)">
             <summary>
@@ -4454,7 +4488,8 @@
             being added to the component.</param>
             <param name="flags">Operation flags. Lower bits contain a connectivity value, 
             4 (default) or 8, used within the function. Connectivity determines which 
-            neighbors of a pixel are considered. </param>
+            neighbors of a pixel are considered. Using FloodFillFlags.MaskOnly will
+            fill in the mask using the grey value 255 (white). </param>
             <returns></returns>
         </member>
         <member name="M:OpenCvSharp.Cv2.FloodFill(OpenCvSharp.InputOutputArray,OpenCvSharp.InputOutputArray,OpenCvSharp.Point,OpenCvSharp.Scalar)">
@@ -4497,7 +4532,8 @@
             being added to the component.</param>
             <param name="flags">Operation flags. Lower bits contain a connectivity value, 
             4 (default) or 8, used within the function. Connectivity determines which 
-            neighbors of a pixel are considered. </param>
+            neighbors of a pixel are considered. Using FloodFillFlags.MaskOnly will
+            fill in the mask using the grey value 255 (white). </param>
             <returns></returns>
         </member>
         <member name="M:OpenCvSharp.Cv2.BlendLinear(OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.OutputArray)">
@@ -6428,6 +6464,36 @@
             Unmanaged OpenCV data pointer
             </summary>
         </member>
+        <member name="T:OpenCvSharp.MatMemoryManager`1">
+            <summary>
+            A MemoryManager over an OpenCvSharpMat
+            </summary>
+            <remarks>The pointer is assumed to be fully unmanaged, or externally pinned - no attempt will be made to pin this data</remarks>
+        </member>
+        <member name="M:OpenCvSharp.MatMemoryManager`1.#ctor(OpenCvSharp.Mat,System.Boolean)">
+            <summary>
+            Create a new UnmanagedMemoryManager instance at the given pointer and size
+            </summary>
+            <remarks>It is assumed that the span provided is already unmanaged or externally pinned</remarks>
+        </member>
+        <member name="M:OpenCvSharp.MatMemoryManager`1.GetSpan">
+            <inheritdoc />
+        </member>
+        <member name="M:OpenCvSharp.MatMemoryManager`1.Pin(System.Int32)">
+            <summary>
+            Provides access to a pointer that represents the data (note: no actual pin occurs)
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.MatMemoryManager`1.Unpin">
+            <summary>
+            Has no effect
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.MatMemoryManager`1.Dispose(System.Boolean)">
+            <summary>
+            Releases all resources associated with this object
+            </summary>
+        </member>
         <member name="T:OpenCvSharp.OpenCVException">
             <summary>
             The default exception to be thrown by OpenCV 
@@ -8140,22 +8206,30 @@
             <param name="borderColor">color of marker borders. Rest of colors (text color and first corner color)
              are calculated based on this one to improve visualization.</param>
         </member>
-        <member name="M:OpenCvSharp.Aruco.CvAruco.DrawMarker(OpenCvSharp.Aruco.Dictionary,System.Int32,System.Int32,OpenCvSharp.OutputArray,System.Int32)">
-            <summary>
-            Draw a canonical marker image
-            </summary>
-            <param name="dictionary">dictionary of markers indicating the type of markers</param>
-            <param name="id">identifier of the marker that will be returned. It has to be a valid id in the specified dictionary.</param>
-            <param name="sidePixels">size of the image in pixels</param>
-            <param name="mat">output image with the marker</param>
-            <param name="borderBits">width of the marker border.</param>
-        </member>
         <member name="M:OpenCvSharp.Aruco.CvAruco.GetPredefinedDictionary(OpenCvSharp.Aruco.PredefinedDictionaryName)">
             <summary>
             Returns one of the predefined dictionaries defined in PREDEFINED_DICTIONARY_NAME
             </summary>
             <param name="name"></param>
             <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Aruco.CvAruco.ReadDictionary(System.String)">
+            <summary>
+            Reads a new dictionary from FileNode.
+            </summary>
+            <remarks>
+            Dictionary format is YAML see sample below
+            <code>
+            nmarkers: 35
+            markersize: 6
+            maxCorrectionBits: 5
+            marker_0: "101011111011111001001001101100000000"
+            ...
+            marker_34: "011111010000111011111110110101100101"
+            </code>
+            </remarks>
+            <param name="dictionaryFile">The path of the dictionary file</param>
+            <returns>Instance of a Dictionary</returns>
         </member>
         <member name="M:OpenCvSharp.Aruco.CvAruco.DetectCharucoDiamond(OpenCvSharp.InputArray,OpenCvSharp.Point2f[][],System.Collections.Generic.IEnumerable{System.Int32},System.Single,OpenCvSharp.Point2f[][]@,OpenCvSharp.Vec4i[]@,OpenCvSharp.InputArray,OpenCvSharp.InputArray)">
             <summary>
@@ -8192,167 +8266,185 @@
             Parameters for the detectMarker process
             </summary>
         </member>
-        <member name="M:OpenCvSharp.Aruco.DetectorParameters.Create">
-            <summary> 
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AdaptiveThreshWinSizeMin">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AdaptiveThreshWinSizeMin">
             <summary>
             minimum window size for adaptive thresholding before finding contours (default 3).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AdaptiveThreshWinSizeMax">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AdaptiveThreshWinSizeMax">
             <summary>
             adaptiveThreshWinSizeMax: maximum window size for adaptive thresholding before finding contours(default 23).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AdaptiveThreshWinSizeStep">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AdaptiveThreshWinSizeStep">
             <summary>
             increments from adaptiveThreshWinSizeMin to adaptiveThreshWinSizeMax during the thresholding(default 10).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AdaptiveThreshConstant">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AdaptiveThreshConstant">
             <summary>
             constant for adaptive thresholding before finding contours (default 7)
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.MinMarkerPerimeterRate">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.MinMarkerPerimeterRate">
             <summary>
             determine minimum perimeter for marker contour to be detected. 
             This is defined as a rate respect to the maximum dimension of the input image(default 0.03).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.MaxMarkerPerimeterRate">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.MaxMarkerPerimeterRate">
             <summary>
              determine maximum perimeter for marker contour to be detected. 
             This is defined as a rate respect to the maximum dimension of the input image(default 4.0).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.PolygonalApproxAccuracyRate">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.PolygonalApproxAccuracyRate">
             <summary>
             minimum accuracy during the polygonal approximation process to determine which contours are squares.
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.MinCornerDistanceRate">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.MinCornerDistanceRate">
             <summary>
             minimum distance between corners for detected markers relative to its perimeter(default 0.05)
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.MinDistanceToBorder">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.MinDistanceToBorder">
             <summary>
              minimum distance of any corner to the image border for detected markers (in pixels) (default 3)
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.MinMarkerDistanceRate">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.MinMarkerDistanceRate">
             <summary>
             minimum mean distance between two marker corners to be considered similar, 
             so that the smaller one is removed.The rate is relative to the smaller perimeter of the two markers(default 0.05).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.CornerRefinementMethod">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.CornerRefinementMethod">
             <summary>
             corner refinement method.
             (CORNER_REFINE_NONE, no refinement. CORNER_REFINE_SUBPIX, do subpixel refinement. CORNER_REFINE_CONTOUR use contour-Points)
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.CornerRefinementWinSize">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.CornerRefinementWinSize">
             <summary>
             window size for the corner refinement process (in pixels) (default 5).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.CornerRefinementMaxIterations">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.CornerRefinementMaxIterations">
             <summary>
             maximum number of iterations for stop criteria of the corner refinement process(default 30).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.CornerRefinementMinAccuracy">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.CornerRefinementMinAccuracy">
             <summary>
             minimum error for the stop criteria of the corner refinement process(default: 0.1)
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.MarkerBorderBits">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.MarkerBorderBits">
             <summary>
             number of bits of the marker border, i.e. marker border width (default 1).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.PerspectiveRemovePixelPerCell">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.PerspectiveRemovePixelPerCell">
             <summary>
             number of bits (per dimension) for each cell of the marker when removing the perspective(default 8).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.PerspectiveRemoveIgnoredMarginPerCell">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.PerspectiveRemoveIgnoredMarginPerCell">
             <summary>
             width of the margin of pixels on each cell not considered for the determination 
             of the cell bit.Represents the rate respect to the total  size of the cell, 
             i.e. perspectiveRemovePixelPerCell (default 0.13)
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.MaxErroneousBitsInBorderRate">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.MaxErroneousBitsInBorderRate">
             <summary>
             maximum number of accepted erroneous bits in the border 
             (i.e. number of allowed white bits in the border). Represented as a rate respect to the total 
             number of bits per marker(default 0.35).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.MinOtsuStdDev">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.MinOtsuStdDev">
             <summary>
             minimun standard deviation in pixels values during the decodification step to
              apply Otsu thresholding(otherwise, all the bits are set to 0 or 1 depending on mean higher than 128 or not) (default 5.0)
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.ErrorCorrectionRate">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.ErrorCorrectionRate">
             <summary>
             errorCorrectionRate error correction rate respect to the maximun error correction capability for each dictionary. (default 0.6).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AprilTagQuadDecimate">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AprilTagQuadDecimate">
             <summary>
             Detection of quads can be done on a lower-resolution image, improving speed at a cost of pose accuracy and a slight decrease in detection rate.
             Decoding the binary payload is still done at full resolution.
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AprilTagQuadSigma">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AprilTagQuadSigma">
             <summary>
             What Gaussian blur should be applied to the segmented image (used for quad detection?) Parameter is the standard deviation in pixels.
             Very noisy images benefit from non-zero values (e.g. 0.8).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AprilTagMinClusterPixels">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AprilTagMinClusterPixels">
             <summary>
             reject quads containing too few pixels.
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AprilTagMaxNmaxima">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AprilTagMaxNmaxima">
             <summary>
             how many corner candidates to consider when segmenting a group of pixels into a quad.
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AprilTagCriticalRad">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AprilTagCriticalRad">
             <summary>
             Reject quads where pairs of edges have angles that are close to straight or close to 180 degrees. Zero means that no quads are rejected. (In radians).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AprilTagMaxLineFitMse">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AprilTagMaxLineFitMse">
             <summary>
             When fitting lines to the contours, what is the maximum mean squared error allowed?
             This is useful in rejecting contours that are far from being quad shaped; rejecting these quads "early" saves expensive decoding processing.
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AprilTagDeglitch">
-            <summary>
-            should the thresholded image be deglitched? Only useful for very noisy images
-            </summary>
-        </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.AprilTagMinWhiteBlackDiff">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AprilTagMinWhiteBlackDiff">
             <summary>
             When we build our model of black &amp; white pixels, we add an extra check that the white model must be (overall) brighter than the black model.
             How much brighter? (in pixel values, [0,255]).
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.DetectorParameters.DetectInvertedMarker">
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.AprilTagDeglitch">
+            <summary>
+            should the thresholded image be deglitched? Only useful for very noisy images
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.DetectInvertedMarker">
             <summary>
             to check if there is a white marker. In order to generate a "white" marker just invert a normal marker by using a tilde, ~markerImage. (default false)
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.UseAruco3Detection">
+            <summary>
+            enable the new and faster Aruco detection strategy.
+            Proposed in the paper:
+            * Romero-Ramirez et al: Speeded up detection of squared fiducial markers (2018)
+            * https://www.researchgate.net/publication/325787310_Speeded_Up_Detection_of_Squared_Fiducial_Markers
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.MinSideLengthCanonicalImg">
+            <summary>
+            minimum side length of a marker in the canonical image. Latter is the binarized image in which contours are searched. 
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Aruco.DetectorParameters.MinMarkerLengthRatioOriginalImg">
+            <summary>
+            range [0,1], eq (2) from paper. The parameter tau_i has a direct influence on the processing speed.
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Aruco.DetectorParameters.#ctor">
+            <summary>
+            Constructor
             </summary>
         </member>
         <member name="T:OpenCvSharp.Aruco.Dictionary">
@@ -8360,19 +8452,14 @@
             Dictionary/Set of markers. It contains the inner codification
             </summary>
         </member>
-        <member name="P:OpenCvSharp.Aruco.Dictionary.ObjectPtr">
-            <summary>
-            cv::Ptr&lt;T&gt;
-            </summary>
-        </member>
         <member name="M:OpenCvSharp.Aruco.Dictionary.#ctor(System.IntPtr)">
             <summary>
             
             </summary>
         </member>
-        <member name="M:OpenCvSharp.Aruco.Dictionary.DisposeManaged">
+        <member name="M:OpenCvSharp.Aruco.Dictionary.DisposeUnmanaged">
             <summary>
-            Releases managed resources
+            Releases unmanaged resources
             </summary>
         </member>
         <member name="P:OpenCvSharp.Aruco.Dictionary.BytesList">
@@ -8389,6 +8476,51 @@
             <summary>
             Maximum number of bits that can be corrected.
             </summary>
+        </member>
+        <member name="M:OpenCvSharp.Aruco.Dictionary.Identify(OpenCvSharp.Mat,System.Int32@,System.Int32@,System.Double)">
+            <summary>
+            Given a matrix of bits. Returns whether if marker is identified or not.
+            It returns by reference the correct id (if any) and the correct rotation
+            </summary>
+            <param name="onlyBits"></param>
+            <param name="idx"></param>
+            <param name="rotation"></param>
+            <param name="maxCorrectionRate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Aruco.Dictionary.GetDistanceToId(OpenCvSharp.InputArray,System.Int32,System.Boolean)">
+            <summary>
+            Returns the distance of the input bits to the specific id.
+            If allRotations is true, the four possible bits rotation are considered
+            </summary>
+            <param name="bits"></param>
+            <param name="id"></param>
+            <param name="allRotations"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Aruco.Dictionary.GenerateImageMarker(System.Int32,System.Int32,OpenCvSharp.OutputArray,System.Int32)">
+            <summary>
+            Generate a canonical marker image
+            </summary>
+            <param name="id"></param>
+            <param name="sidePixels"></param>
+            <param name="img"></param>
+            <param name="borderBits"></param>
+        </member>
+        <member name="M:OpenCvSharp.Aruco.Dictionary.GetByteListFromBits(OpenCvSharp.Mat)">
+            <summary>
+            Transform matrix of bits to list of bytes in the 4 rotations
+            </summary>
+            <param name="bits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Aruco.Dictionary.GetBitsFromByteList(OpenCvSharp.Mat,System.Int32)">
+            <summary>
+            Transform list of bytes to matrix of bits
+            </summary>
+            <param name="byteList"></param>
+            <param name="markerSize"></param>
+            <returns></returns>
         </member>
         <member name="T:OpenCvSharp.Aruco.CornerRefineMethod">
             <summary>
@@ -9887,6 +10019,46 @@
             user-supplied labels instead of computing them from the initial centers. 
             For the second and further attempts, use the random or semi-random centers. 
             Use one of KMEANS_\*_CENTERS flag to specify the exact method.
+            </summary>
+        </member>
+        <member name="T:OpenCvSharp.LogLevel">
+            <summary>
+            cv::utils::logging::LogLevel
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LogLevel.SILENT">
+            <summary>
+            for using in setLogVevel() call
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LogLevel.FATAL">
+            <summary>
+            Fatal (critical) error (unrecoverable internal error)
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LogLevel.ERROR">
+            <summary>
+            Error message.
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LogLevel.WARNING">
+            <summary>
+            Warning message.
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LogLevel.INFO">
+            <summary>
+            Info message.
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LogLevel.DEBUG">
+            <summary>
+            Debug message. Disabled in the "Release" build.
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LogLevel.VERBOSE">
+            <summary>
+            Verbose (trace) messages. Requires verbosity level. Disabled in the "Release" build.
             </summary>
         </member>
         <member name="T:OpenCvSharp.MatDiagType">
@@ -12051,6 +12223,12 @@
             </summary>
             <param name="ptr"></param>
         </member>
+        <member name="M:OpenCvSharp.Mat.FromNativePointer(System.IntPtr)">
+            <summary>
+            Creates from native cv::Mat* pointer
+            </summary>
+            <param name="ptr"></param>
+        </member>
         <member name="M:OpenCvSharp.Mat.#ctor">
             <summary>
             Creates empty Mat
@@ -12159,6 +12337,21 @@
             <param name="step">Number of bytes each matrix row occupies. The value should include the padding bytes at the end of each row, if any.
             If the parameter is missing (set to AUTO_STEP ), no padding is assumed and the actual step is calculated as cols*elemSize() .</param>
         </member>
+        <member name="M:OpenCvSharp.Mat.FromPixelData(System.Int32,System.Int32,OpenCvSharp.MatType,System.IntPtr,System.Int64)">
+            <summary>
+            constructor for matrix headers pointing to user-allocated data
+            </summary>
+            <param name="rows">Number of rows in a 2D array.</param>
+            <param name="cols">Number of columns in a 2D array.</param>
+            <param name="type">Array type. Use MatType.CV_8UC1, ..., CV_64FC4 to create 1-4 channel matrices, 
+            or MatType. CV_8UC(n), ..., CV_64FC(n) to create multi-channel matrices.</param>
+            <param name="data">Pointer to the user data. Matrix constructors that take data and step parameters do not allocate matrix data. 
+            Instead, they just initialize the matrix header that points to the specified data, which means that no data is copied. 
+            This operation is very efficient and can be used to process external data using OpenCV functions. 
+            The external data is not automatically de-allocated, so you should take care of it.</param>
+            <param name="step">Number of bytes each matrix row occupies. The value should include the padding bytes at the end of each row, if any.
+            If the parameter is missing (set to AUTO_STEP ), no padding is assumed and the actual step is calculated as cols*elemSize() .</param>
+        </member>
         <member name="M:OpenCvSharp.Mat.#ctor(System.Int32,System.Int32,OpenCvSharp.MatType,System.Array,System.Int64)">
             <summary>
             constructor for matrix headers pointing to user-allocated data
@@ -12174,7 +12367,22 @@
             <param name="step">Number of bytes each matrix row occupies. The value should include the padding bytes at the end of each row, if any.
             If the parameter is missing (set to AUTO_STEP ), no padding is assumed and the actual step is calculated as cols*elemSize() .</param>
         </member>
-        <member name="M:OpenCvSharp.Mat.#ctor(System.Collections.Generic.IEnumerable{System.Int32},OpenCvSharp.MatType,System.IntPtr,System.Collections.Generic.IEnumerable{System.Int64})">
+        <member name="M:OpenCvSharp.Mat.FromPixelData(System.Int32,System.Int32,OpenCvSharp.MatType,System.Array,System.Int64)">
+            <summary>
+            constructor for matrix headers pointing to user-allocated data
+            </summary>
+            <param name="rows">Number of rows in a 2D array.</param>
+            <param name="cols">Number of columns in a 2D array.</param>
+            <param name="type">Array type. Use MatType.CV_8UC1, ..., CV_64FC4 to create 1-4 channel matrices, 
+            or MatType. CV_8UC(n), ..., CV_64FC(n) to create multi-channel matrices.</param>
+            <param name="data">Pointer to the user data. Matrix constructors that take data and step parameters do not allocate matrix data. 
+            Instead, they just initialize the matrix header that points to the specified data, which means that no data is copied. 
+            This operation is very efficient and can be used to process external data using OpenCV functions. 
+            The external data is not automatically de-allocated, so you should take care of it.</param>
+            <param name="step">Number of bytes each matrix row occupies. The value should include the padding bytes at the end of each row, if any.
+            If the parameter is missing (set to AUTO_STEP ), no padding is assumed and the actual step is calculated as cols*elemSize() .</param>
+        </member>
+        <member name="M:OpenCvSharp.Mat.FromPixelData(System.Collections.Generic.IEnumerable{System.Int32},OpenCvSharp.MatType,System.IntPtr,System.Collections.Generic.IEnumerable{System.Int64})">
             <summary>
             constructor for matrix headers pointing to user-allocated data
             </summary>
@@ -12189,6 +12397,20 @@
             If not specified, the matrix is assumed to be continuous.</param>
         </member>
         <member name="M:OpenCvSharp.Mat.#ctor(System.Collections.Generic.IEnumerable{System.Int32},OpenCvSharp.MatType,System.Array,System.Collections.Generic.IEnumerable{System.Int64})">
+            <summary>
+            constructor for matrix headers pointing to user-allocated data
+            </summary>
+            <param name="sizes">Array of integers specifying an n-dimensional array shape.</param>
+            <param name="type">Array type. Use MatType.CV_8UC1, ..., CV_64FC4 to create 1-4 channel matrices, 
+            or MatType. CV_8UC(n), ..., CV_64FC(n) to create multi-channel matrices.</param>
+            <param name="data">Pointer to the user data. Matrix constructors that take data and step parameters do not allocate matrix data. 
+            Instead, they just initialize the matrix header that points to the specified data, which means that no data is copied. 
+            This operation is very efficient and can be used to process external data using OpenCV functions. 
+            The external data is not automatically de-allocated, so you should take care of it.</param>
+            <param name="steps">Array of ndims-1 steps in case of a multi-dimensional array (the last step is always set to the element size). 
+            If not specified, the matrix is assumed to be continuous.</param>
+        </member>
+        <member name="M:OpenCvSharp.Mat.FromPixelData(System.Collections.Generic.IEnumerable{System.Int32},OpenCvSharp.MatType,System.Array,System.Collections.Generic.IEnumerable{System.Int64})">
             <summary>
             constructor for matrix headers pointing to user-allocated data
             </summary>
@@ -13695,6 +13917,13 @@
             </summary>
             <param name="operation"></param>
         </member>
+        <member name="M:OpenCvSharp.Mat.AsSpan``1">
+            <summary>
+            Creates a new span over the Mat.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
         <member name="M:OpenCvSharp.Mat.Abs">
             <summary>
             Computes absolute value of each matrix element
@@ -14706,6 +14935,14 @@
             <param name="borderType"></param>
             <returns></returns>
         </member>
+        <member name="M:OpenCvSharp.Mat.BuildPyramid(System.Int32,OpenCvSharp.BorderTypes)">
+            <summary>
+            Upsamples an image and then blurs it.
+            </summary>
+            <param name="maxlevel"></param>
+            <param name="borderType"></param>
+            <returns></returns>
+        </member>
         <member name="M:OpenCvSharp.Mat.Undistort(OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.InputArray)">
             <summary>
             corrects lens distortion for the given camera matrix and distortion coefficients
@@ -15322,6 +15559,12 @@
             </summary>
             <param name="ptr"></param>
         </member>
+        <member name="M:OpenCvSharp.Mat`1.FromNativePointer(System.IntPtr)">
+            <summary>
+            Creates from native cv::Mat* pointer
+            </summary>
+            <param name="ptr"></param>
+        </member>
         <member name="M:OpenCvSharp.Mat`1.#ctor(OpenCvSharp.Mat)">
             <summary>
             Initializes by Mat object
@@ -15395,7 +15638,20 @@
             If you want to have an independent copy of the sub-array, use Mat.Clone() .</param>
             <param name="roi">Region of interest.</param>
         </member>
-        <member name="M:OpenCvSharp.Mat`1.#ctor(System.Int32,System.Int32,System.IntPtr,System.Int64)">
+        <member name="M:OpenCvSharp.Mat`1.FromPixelData(System.Int32,System.Int32,System.IntPtr,System.Int64)">
+            <summary>
+            constructor for matrix headers pointing to user-allocated data
+            </summary>
+            <param name="rows">Number of rows in a 2D array.</param>
+            <param name="cols">Number of columns in a 2D array.</param>
+            <param name="data">Pointer to the user data. Matrix constructors that take data and step parameters do not allocate matrix data. 
+            Instead, they just initialize the matrix header that points to the specified data, which means that no data is copied. 
+            This operation is very efficient and can be used to process external data using OpenCV functions. 
+            The external data is not automatically de-allocated, so you should take care of it.</param>
+            <param name="step">Number of bytes each matrix row occupies. The value should include the padding bytes at the end of each row, if any.
+            If the parameter is missing (set to AUTO_STEP ), no padding is assumed and the actual step is calculated as cols*elemSize() .</param>
+        </member>
+        <member name="M:OpenCvSharp.Mat`1.FromPixelData(System.Int32,System.Int32,System.Array,System.Int64)">
             <summary>
             constructor for matrix headers pointing to user-allocated data
             </summary>
@@ -15421,7 +15677,7 @@
             <param name="step">Number of bytes each matrix row occupies. The value should include the padding bytes at the end of each row, if any.
             If the parameter is missing (set to AUTO_STEP ), no padding is assumed and the actual step is calculated as cols*elemSize() .</param>
         </member>
-        <member name="M:OpenCvSharp.Mat`1.#ctor(System.Collections.Generic.IEnumerable{System.Int32},System.IntPtr,System.Collections.Generic.IEnumerable{System.Int64})">
+        <member name="M:OpenCvSharp.Mat`1.FromPixelData(System.Collections.Generic.IEnumerable{System.Int32},System.IntPtr,System.Collections.Generic.IEnumerable{System.Int64})">
             <summary>
             constructor for matrix headers pointing to user-allocated data
             </summary>
@@ -15633,6 +15889,12 @@
         <member name="M:OpenCvSharp.UMat.#ctor(System.IntPtr)">
             <summary>
             Creates from native cv::Mat* pointer
+            </summary>
+            <param name="ptr"></param>
+        </member>
+        <member name="M:OpenCvSharp.UMat.FromNativePointer(System.IntPtr)">
+            <summary>
+            Creates from native cv::UMat* pointer
             </summary>
             <param name="ptr"></param>
         </member>
@@ -17017,7 +17279,7 @@
             </summary>
             <param name="m"></param>
         </member>
-        <member name="M:OpenCvSharp.SparseMat.ConvertTo(OpenCvSharp.SparseMat,System.Int32,System.Double)">
+        <member name="M:OpenCvSharp.SparseMat.ConvertTo(OpenCvSharp.SparseMat,OpenCvSharp.MatType,System.Double)">
             <summary>
             multiplies all the matrix elements by the specified scale factor alpha and converts the results to the specified data type
             </summary>
@@ -17025,7 +17287,7 @@
             <param name="rtype"></param>
             <param name="alpha"></param>
         </member>
-        <member name="M:OpenCvSharp.SparseMat.ConvertTo(OpenCvSharp.Mat,System.Int32,System.Double,System.Double)">
+        <member name="M:OpenCvSharp.SparseMat.ConvertTo(OpenCvSharp.Mat,OpenCvSharp.MatType,System.Double,System.Double)">
             <summary>
             converts sparse matrix to dense n-dim matrix with optional type conversion and scaling.
             </summary>
@@ -17034,7 +17296,7 @@
             <param name="alpha">The scale factor</param>
             <param name="beta">The optional delta added to the scaled values before the conversion</param>
         </member>
-        <member name="M:OpenCvSharp.SparseMat.AssignTo(OpenCvSharp.SparseMat,System.Int32)">
+        <member name="M:OpenCvSharp.SparseMat.AssignTo(OpenCvSharp.SparseMat,System.Nullable{OpenCvSharp.MatType})">
             <summary>
             not used now
             </summary>
@@ -17452,6 +17714,17 @@
             <summary>
             Struct for matching: query descriptor index, train descriptor index, train image index and distance between descriptors.
             </summary>
+            <remarks>
+            Constructor
+            </remarks>
+        </member>
+        <member name="M:OpenCvSharp.DMatch.#ctor(System.Int32,System.Int32,System.Int32,System.Single)">
+            <summary>
+            Struct for matching: query descriptor index, train descriptor index, train image index and distance between descriptors.
+            </summary>
+            <remarks>
+            Constructor
+            </remarks>
         </member>
         <member name="F:OpenCvSharp.DMatch.QueryIdx">
             <summary>
@@ -17487,15 +17760,6 @@
             <param name="trainIdx"></param>
             <param name="distance"></param>
         </member>
-        <member name="M:OpenCvSharp.DMatch.#ctor(System.Int32,System.Int32,System.Int32,System.Single)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="queryIdx"></param>
-            <param name="trainIdx"></param>
-            <param name="imgIdx"></param>
-            <param name="distance"></param>
-        </member>
         <member name="M:OpenCvSharp.DMatch.op_LessThan(OpenCvSharp.DMatch,OpenCvSharp.DMatch)">
             <summary>
             Compares by distance (less is better)
@@ -17519,13 +17783,33 @@
             <param name="other"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.DMatch.ToString">
-            <inheritdoc />
-        </member>
         <member name="T:OpenCvSharp.KeyPoint">
             <summary>
             Data structure for salient point detectors
             </summary>
+            <remarks>
+            Complete constructor
+            </remarks>
+            <param name="Pt">Coordinate of the point</param>
+            <param name="Size">Feature size</param>
+            <param name="Angle">Feature orientation in degrees (has negative value if the orientation is not defined/not computed)</param>
+            <param name="Response">Feature strength (can be used to select only the most prominent key points)</param>
+            <param name="Octave">Scale-space octave in which the feature has been found; may correlate with the size</param>
+            <param name="ClassId">Point class (can be used by feature classifiers or object detectors)</param>
+        </member>
+        <member name="M:OpenCvSharp.KeyPoint.#ctor(OpenCvSharp.Point2f,System.Single,System.Single,System.Single,System.Int32,System.Int32)">
+            <summary>
+            Data structure for salient point detectors
+            </summary>
+            <remarks>
+            Complete constructor
+            </remarks>
+            <param name="Pt">Coordinate of the point</param>
+            <param name="Size">Feature size</param>
+            <param name="Angle">Feature orientation in degrees (has negative value if the orientation is not defined/not computed)</param>
+            <param name="Response">Feature strength (can be used to select only the most prominent key points)</param>
+            <param name="Octave">Scale-space octave in which the feature has been found; may correlate with the size</param>
+            <param name="ClassId">Point class (can be used by feature classifiers or object detectors)</param>
         </member>
         <member name="F:OpenCvSharp.KeyPoint.Pt">
             <summary>
@@ -17557,17 +17841,6 @@
             Point class (can be used by feature classifiers or object detectors)
             </summary>
         </member>
-        <member name="M:OpenCvSharp.KeyPoint.#ctor(OpenCvSharp.Point2f,System.Single,System.Single,System.Single,System.Int32,System.Int32)">
-            <summary>
-            Complete constructor
-            </summary>
-            <param name="pt">Coordinate of the point</param>
-            <param name="size">Feature size</param>
-            <param name="angle">Feature orientation in degrees (has negative value if the orientation is not defined/not computed)</param>
-            <param name="response">Feature strength (can be used to select only the most prominent key points)</param>
-            <param name="octave">Scale-space octave in which the feature has been found; may correlate with the size</param>
-            <param name="classId">Point class (can be used by feature classifiers or object detectors)</param>
-        </member>
         <member name="M:OpenCvSharp.KeyPoint.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Int32,System.Int32)">
             <summary>
             Complete constructor
@@ -17580,35 +17853,12 @@
             <param name="octave">Scale-space octave in which the feature has been found; may correlate with the size</param>
             <param name="classId">Point class (can be used by feature classifiers or object detectors)</param>
         </member>
-        <member name="M:OpenCvSharp.KeyPoint.op_Equality(OpenCvSharp.KeyPoint,OpenCvSharp.KeyPoint)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the members of each object are equal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.KeyPoint.op_Inequality(OpenCvSharp.KeyPoint,OpenCvSharp.KeyPoint)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the members of each object are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are unequal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.KeyPoint.Equals(OpenCvSharp.KeyPoint)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.KeyPoint.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.KeyPoint.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.KeyPoint.ToString">
-            <inheritdoc />
-        </member>
         <member name="T:OpenCvSharp.MatType">
+            <summary>
+            Matrix data type (depth and number of channels)
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.MatType.#ctor(System.Int32)">
             <summary>
             Matrix data type (depth and number of channels)
             </summary>
@@ -17623,13 +17873,7 @@
             Entity value
             </summary>
         </member>
-        <member name="M:OpenCvSharp.MatType.#ctor(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="value"></param>
-        </member>
-        <member name="M:OpenCvSharp.MatType.op_Implicit(OpenCvSharp.MatType)~System.Int32">
+        <member name="M:OpenCvSharp.MatType.op_Explicit(OpenCvSharp.MatType)~System.Int32">
             <summary> 
             </summary>
             <param name="self"></param>
@@ -17855,6 +18099,11 @@
             
             </summary>
         </member>
+        <member name="M:OpenCvSharp.Point.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:OpenCvSharp.Point.X">
             <summary>
             
@@ -17865,35 +18114,12 @@
             
             </summary>
         </member>
-        <member name="M:OpenCvSharp.Point.#ctor(System.Int32,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-        </member>
         <member name="M:OpenCvSharp.Point.#ctor(System.Double,System.Double)">
             <summary>
             
             </summary>
             <param name="x"></param>
             <param name="y"></param>
-        </member>
-        <member name="M:OpenCvSharp.Point.op_Equality(OpenCvSharp.Point,OpenCvSharp.Point)">
-            <summary>
-            Compares two Point objects. The result specifies whether the values of the X and Y properties of the two Point objects are equal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the X and Y values of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Point.op_Inequality(OpenCvSharp.Point,OpenCvSharp.Point)">
-            <summary>
-            Compares two Point objects. The result specifies whether the values of the X or Y properties of the two Point objects are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the values of either the X properties or the Y properties of left and right differ; otherwise, false.</returns>
         </member>
         <member name="M:OpenCvSharp.Point.Plus">
             <summary>
@@ -17966,18 +18192,6 @@
             <param name="scale"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Point.Equals(OpenCvSharp.Point)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point.ToString">
-            <inheritdoc />
-        </member>
         <member name="M:OpenCvSharp.Point.Distance(OpenCvSharp.Point,OpenCvSharp.Point)">
             <summary>
             Returns the distance between the specified two points
@@ -18024,8 +18238,11 @@
             <returns></returns>
         </member>
         <member name="T:OpenCvSharp.Point2d">
-            <summary>
-            
+            <summary>/// 
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Point2d.#ctor(System.Double,System.Double)">
+            <summary>/// 
             </summary>
         </member>
         <member name="F:OpenCvSharp.Point2d.X">
@@ -18037,29 +18254,6 @@
             <summary>
             
             </summary>
-        </member>
-        <member name="M:OpenCvSharp.Point2d.#ctor(System.Double,System.Double)">
-            <summary>
-            
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-        </member>
-        <member name="M:OpenCvSharp.Point2d.op_Equality(OpenCvSharp.Point2d,OpenCvSharp.Point2d)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the values of the X and Y properties of the two CvPoint objects are equal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the X and Y values of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Point2d.op_Inequality(OpenCvSharp.Point2d,OpenCvSharp.Point2d)">
-            <summary>
-            Compares two CvPoint2D32f objects. The result specifies whether the values of the X or Y properties of the two CvPoint2D32f objects are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the values of either the X properties or the Y properties of left and right differ; otherwise, false.</returns>
         </member>
         <member name="M:OpenCvSharp.Point2d.Plus">
             <summary>
@@ -18132,18 +18326,6 @@
             <param name="scale"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Point2d.Equals(OpenCvSharp.Point2d)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point2d.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point2d.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point2d.ToString">
-            <inheritdoc />
-        </member>
         <member name="M:OpenCvSharp.Point2d.Distance(OpenCvSharp.Point2d,OpenCvSharp.Point2d)">
             <summary>
             Returns the distance between the specified two points
@@ -18194,6 +18376,11 @@
             
             </summary>
         </member>
+        <member name="M:OpenCvSharp.Point2f.#ctor(System.Single,System.Single)">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:OpenCvSharp.Point2f.X">
             <summary>
             
@@ -18203,29 +18390,6 @@
             <summary>
             
             </summary>
-        </member>
-        <member name="M:OpenCvSharp.Point2f.#ctor(System.Single,System.Single)">
-            <summary>
-            
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-        </member>
-        <member name="M:OpenCvSharp.Point2f.op_Equality(OpenCvSharp.Point2f,OpenCvSharp.Point2f)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the values of the X and Y properties of the two CvPoint objects are equal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the X and Y values of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Point2f.op_Inequality(OpenCvSharp.Point2f,OpenCvSharp.Point2f)">
-            <summary>
-            Compares two CvPoint2D32f objects. The result specifies whether the values of the X or Y properties of the two CvPoint2D32f objects are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the values of either the X properties or the Y properties of left and right differ; otherwise, false.</returns>
         </member>
         <member name="M:OpenCvSharp.Point2f.Plus">
             <summary>
@@ -18298,18 +18462,6 @@
             <param name="scale"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Point2f.Equals(OpenCvSharp.Point2f)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point2f.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point2f.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point2f.ToString">
-            <inheritdoc />
-        </member>
         <member name="M:OpenCvSharp.Point2f.Distance(OpenCvSharp.Point2f,OpenCvSharp.Point2f)">
             <summary>
             Returns the distance between the specified two points
@@ -18356,8 +18508,11 @@
             <returns></returns>
         </member>
         <member name="T:OpenCvSharp.Point3d">
-            <summary>
-            
+            <summary>/// 
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Point3d.#ctor(System.Double,System.Double,System.Double)">
+            <summary>/// 
             </summary>
         </member>
         <member name="F:OpenCvSharp.Point3d.X">
@@ -18374,30 +18529,6 @@
             <summary>
             
             </summary>
-        </member>
-        <member name="M:OpenCvSharp.Point3d.#ctor(System.Double,System.Double,System.Double)">
-            <summary>
-            
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-        </member>
-        <member name="M:OpenCvSharp.Point3d.op_Equality(OpenCvSharp.Point3d,OpenCvSharp.Point3d)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the values of the X and Y properties of the two CvPoint objects are equal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the X and Y values of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Point3d.op_Inequality(OpenCvSharp.Point3d,OpenCvSharp.Point3d)">
-            <summary>
-            Compares two CvPoint2D32f objects. The result specifies whether the values of the X or Y properties of the two CvPoint2D32f objects are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the values of either the X properties or the Y properties of left and right differ; otherwise, false.</returns>
         </member>
         <member name="M:OpenCvSharp.Point3d.op_UnaryPlus(OpenCvSharp.Point3d)">
             <summary>
@@ -18470,21 +18601,12 @@
             <param name="scale"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Point3d.Equals(OpenCvSharp.Point3d)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point3d.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point3d.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point3d.ToString">
-            <inheritdoc />
-        </member>
         <member name="T:OpenCvSharp.Point3f">
-            <summary>
-            
+            <summary>/// 
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Point3f.#ctor(System.Single,System.Single,System.Single)">
+            <summary>/// 
             </summary>
         </member>
         <member name="F:OpenCvSharp.Point3f.X">
@@ -18501,30 +18623,6 @@
             <summary>
             
             </summary>
-        </member>
-        <member name="M:OpenCvSharp.Point3f.#ctor(System.Single,System.Single,System.Single)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-        </member>
-        <member name="M:OpenCvSharp.Point3f.op_Equality(OpenCvSharp.Point3f,OpenCvSharp.Point3f)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the values of the X and Y properties of the two CvPoint objects are equal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the X and Y values of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Point3f.op_Inequality(OpenCvSharp.Point3f,OpenCvSharp.Point3f)">
-            <summary>
-            Compares two CvPoint2D32f objects. The result specifies whether the values of the X or Y properties of the two CvPoint2D32f objects are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the values of either the X properties or the Y properties of left and right differ; otherwise, false.</returns>
         </member>
         <member name="M:OpenCvSharp.Point3f.Plus">
             <summary>
@@ -18597,19 +18695,12 @@
             <param name="scale"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Point3f.Equals(OpenCvSharp.Point3f)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point3f.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point3f.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point3f.ToString">
-            <inheritdoc />
-        </member>
         <member name="T:OpenCvSharp.Point3i">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Point3i.#ctor(System.Int32,System.Int32,System.Int32)">
             <summary>
             
             </summary>
@@ -18628,30 +18719,6 @@
             <summary>
             
             </summary>
-        </member>
-        <member name="M:OpenCvSharp.Point3i.#ctor(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-        </member>
-        <member name="M:OpenCvSharp.Point3i.op_Equality(OpenCvSharp.Point3i,OpenCvSharp.Point3i)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the values of the X and Y properties of the two CvPoint objects are equal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the X and Y values of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Point3i.op_Inequality(OpenCvSharp.Point3i,OpenCvSharp.Point3i)">
-            <summary>
-            Compares two CvPoint2D32f objects. The result specifies whether the values of the X or Y properties of the two CvPoint2D32f objects are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the values of either the X properties or the Y properties of left and right differ; otherwise, false.</returns>
         </member>
         <member name="M:OpenCvSharp.Point3i.op_UnaryPlus(OpenCvSharp.Point3i)">
             <summary>
@@ -18724,19 +18791,12 @@
             <param name="scale"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Point3i.Equals(OpenCvSharp.Point3i)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point3i.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point3i.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Point3i.ToString">
-            <inheritdoc />
-        </member>
         <member name="T:OpenCvSharp.Range">
+            <summary>
+            Template class specifying a continuous subsequence (slice) of a sequence.
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Range.#ctor(System.Int32,System.Int32)">
             <summary>
             Template class specifying a continuous subsequence (slice) of a sequence.
             </summary>
@@ -18751,44 +18811,17 @@
             
             </summary>
         </member>
-        <member name="M:OpenCvSharp.Range.#ctor(System.Int32,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="start"></param>
-            <param name="end"></param>
-        </member>
         <member name="P:OpenCvSharp.Range.All">
             <summary>
             
             </summary>
         </member>
-        <member name="M:OpenCvSharp.Range.Equals(OpenCvSharp.Range)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Range.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Range.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Range.op_Equality(OpenCvSharp.Range,OpenCvSharp.Range)">
-            <summary>
-            
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenCvSharp.Range.op_Inequality(OpenCvSharp.Range,OpenCvSharp.Range)">
-            <summary>
-            
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
-            <returns></returns>
-        </member>
         <member name="T:OpenCvSharp.Rangef">
+            <summary>
+            float Range class
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Rangef.#ctor(System.Single,System.Single)">
             <summary>
             float Range class
             </summary>
@@ -18802,13 +18835,6 @@
             <summary>
             
             </summary>
-        </member>
-        <member name="M:OpenCvSharp.Rangef.#ctor(System.Single,System.Single)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="start"></param>
-            <param name="end"></param>
         </member>
         <member name="M:OpenCvSharp.Rangef.ToRange">
             <summary>
@@ -18832,40 +18858,39 @@
             <summary>
             Stores a set of four integers that represent the location and size of a rectangle
             </summary>
+            <param name="X">The x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Y">The y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Width">The width of the rectangle.</param>
+            <param name="Height">The height of the rectangle.</param>
+        </member>
+        <member name="M:OpenCvSharp.Rect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Stores a set of four integers that represent the location and size of a rectangle
+            </summary>
+            <param name="X">The x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Y">The y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Width">The width of the rectangle.</param>
+            <param name="Height">The height of the rectangle.</param>
         </member>
         <member name="F:OpenCvSharp.Rect.X">
             <summary>
-            
+            The x-coordinate of the upper-left corner of the rectangle.
             </summary>
         </member>
         <member name="F:OpenCvSharp.Rect.Y">
             <summary>
-            
+            The y-coordinate of the upper-left corner of the rectangle.
             </summary>
         </member>
         <member name="F:OpenCvSharp.Rect.Width">
             <summary>
-            
+            The width of the rectangle.
             </summary>
         </member>
         <member name="F:OpenCvSharp.Rect.Height">
             <summary>
-            
+            The height of the rectangle.
             </summary>
-        </member>
-        <member name="F:OpenCvSharp.Rect.Empty">
-            <summary>
-            Represents a Rect structure with its properties left uninitialized. 
-            </summary>
-        </member>
-        <member name="M:OpenCvSharp.Rect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Initializes a new instance of the Rectangle class with the specified location and size.
-            </summary>
-            <param name="x">The x-coordinate of the upper-left corner of the rectangle.</param>
-            <param name="y">The y-coordinate of the upper-left corner of the rectangle.</param>
-            <param name="width">The width of the rectangle.</param>
-            <param name="height">The height of the rectangle.</param>
         </member>
         <member name="M:OpenCvSharp.Rect.#ctor(OpenCvSharp.Point,OpenCvSharp.Size)">
             <summary>
@@ -18882,22 +18907,6 @@
             <param name="top">The y-coordinate of the upper-left corner of this Rectangle structure.</param>
             <param name="right">The x-coordinate of the lower-right corner of this Rectangle structure.</param>
             <param name="bottom">The y-coordinate of the lower-right corner of this Rectangle structure.</param>
-        </member>
-        <member name="M:OpenCvSharp.Rect.op_Equality(OpenCvSharp.Rect,OpenCvSharp.Rect)">
-            <summary>
-            Compares two Rect objects. The result specifies whether the members of each object are equal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Rect.op_Inequality(OpenCvSharp.Rect,OpenCvSharp.Rect)">
-            <summary>
-            Compares two Rect objects. The result specifies whether the members of each object are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are unequal; otherwise, false.</returns>
         </member>
         <member name="M:OpenCvSharp.Rect.op_Addition(OpenCvSharp.Rect,OpenCvSharp.Point)">
             <summary>
@@ -19096,56 +19105,43 @@
             <param name="b">A rectangle to union. </param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Rect.Equals(OpenCvSharp.Rect)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Rect.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Rect.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Rect.ToString">
-            <inheritdoc />
-        </member>
         <member name="T:OpenCvSharp.Rect2d">
             <summary>
-            
+            Stores a set of four double-precision floating-point numbers that represent the location and size of a rectangle
             </summary>
+            <param name="X">The x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Y">The y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Width">The width of the rectangle.</param>
+            <param name="Height">The height of the rectangle.</param>
+        </member>
+        <member name="M:OpenCvSharp.Rect2d.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Stores a set of four double-precision floating-point numbers that represent the location and size of a rectangle
+            </summary>
+            <param name="X">The x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Y">The y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Width">The width of the rectangle.</param>
+            <param name="Height">The height of the rectangle.</param>
         </member>
         <member name="F:OpenCvSharp.Rect2d.X">
             <summary>
-            
+            The x-coordinate of the upper-left corner of the rectangle.
             </summary>
         </member>
         <member name="F:OpenCvSharp.Rect2d.Y">
             <summary>
-            
+            The y-coordinate of the upper-left corner of the rectangle.
             </summary>
         </member>
         <member name="F:OpenCvSharp.Rect2d.Width">
             <summary>
-            
+            The width of the rectangle.
             </summary>
         </member>
         <member name="F:OpenCvSharp.Rect2d.Height">
             <summary>
-            
+            The height of the rectangle.
             </summary>
-        </member>
-        <member name="F:OpenCvSharp.Rect2d.Empty">
-            <summary>
-            Represents a Rect2d structure with its properties left uninitialized. 
-            </summary>
-        </member>
-        <member name="M:OpenCvSharp.Rect2d.#ctor(System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="width"></param>
-            <param name="height"></param>
         </member>
         <member name="M:OpenCvSharp.Rect2d.#ctor(OpenCvSharp.Point2d,OpenCvSharp.Size2d)">
             <summary>
@@ -19162,22 +19158,6 @@
             <param name="top"></param>
             <param name="right"></param>
             <param name="bottom"></param>
-        </member>
-        <member name="M:OpenCvSharp.Rect2d.op_Equality(OpenCvSharp.Rect2d,OpenCvSharp.Rect2d)">
-            <summary>
-            Compares two Rect2d objects. The result specifies whether the members of each object are equal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Rect2d.op_Inequality(OpenCvSharp.Rect2d,OpenCvSharp.Rect2d)">
-            <summary>
-            Compares two Rect2d objects. The result specifies whether the members of each object are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are unequal; otherwise, false.</returns>
         </member>
         <member name="M:OpenCvSharp.Rect2d.op_Addition(OpenCvSharp.Rect2d,OpenCvSharp.Point2d)">
             <summary>
@@ -19382,36 +19362,43 @@
             <param name="b">A rectangle to union. </param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Rect2d.Equals(OpenCvSharp.Rect2d)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Rect2d.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Rect2d.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Rect2d.ToString">
-            <inheritdoc />
-        </member>
         <member name="T:OpenCvSharp.Rect2f">
             <summary>
             A rectangle with float type coordinates in 2D space
             </summary>
-        </member>
-        <member name="F:OpenCvSharp.Rect2f.Empty">
-            <summary>
-            Represents a Rect2f structure with its properties left uninitialized. 
-            </summary>
+            <param name="X">The x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Y">The y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Width">The width of the rectangle.</param>
+            <param name="Height">The height of the rectangle.</param>
         </member>
         <member name="M:OpenCvSharp.Rect2f.#ctor(System.Single,System.Single,System.Single,System.Single)">
             <summary>
-            Constructor
+            A rectangle with float type coordinates in 2D space
             </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="width"></param>
-            <param name="height"></param>
+            <param name="X">The x-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Y">The y-coordinate of the upper-left corner of the rectangle.</param>
+            <param name="Width">The width of the rectangle.</param>
+            <param name="Height">The height of the rectangle.</param>
+        </member>
+        <member name="F:OpenCvSharp.Rect2f.X">
+            <summary>
+            The x-coordinate of the upper-left corner of the rectangle.
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Rect2f.Y">
+            <summary>
+            The y-coordinate of the upper-left corner of the rectangle.
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Rect2f.Width">
+            <summary>
+            The width of the rectangle.
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Rect2f.Height">
+            <summary>
+            The height of the rectangle.
+            </summary>
         </member>
         <member name="M:OpenCvSharp.Rect2f.#ctor(OpenCvSharp.Point2f,OpenCvSharp.Size2f)">
             <summary>
@@ -19428,22 +19415,6 @@
             <param name="top"></param>
             <param name="right"></param>
             <param name="bottom"></param>
-        </member>
-        <member name="M:OpenCvSharp.Rect2f.op_Equality(OpenCvSharp.Rect2f,OpenCvSharp.Rect2f)">
-            <summary>
-            Compares two Rect2f objects. The result specifies whether the members of each object are equal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Rect2f.op_Inequality(OpenCvSharp.Rect2f,OpenCvSharp.Rect2f)">
-            <summary>
-            Compares two Rect2f objects. The result specifies whether the members of each object are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are unequal; otherwise, false.</returns>
         </member>
         <member name="M:OpenCvSharp.Rect2f.Add(OpenCvSharp.Point2f)">
             <summary>
@@ -19642,18 +19613,6 @@
             <param name="b">A rectangle to union. </param>
             <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Rect2f.Equals(OpenCvSharp.Rect2f)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Rect2f.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Rect2f.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Rect2f.ToString">
-            <inheritdoc />
-        </member>
         <member name="T:OpenCvSharp.RotatedRect">
             <summary>
             The class represents rotated (i.e. not up-right) rectangles on a plane.
@@ -19682,6 +19641,16 @@
             <param name="size"></param>
             <param name="angle"></param>
         </member>
+        <member name="M:OpenCvSharp.RotatedRect.#ctor(OpenCvSharp.Point2f,OpenCvSharp.Point2f,OpenCvSharp.Point2f)">
+            <summary>
+            Any 3 end points of the RotatedRect. They must be given in order (either clockwise or anticlockwise).
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.RotatedRect.FromThreeVertexPoints(OpenCvSharp.Point2f,OpenCvSharp.Point2f,OpenCvSharp.Point2f)">
+            <summary>
+            Any 3 end points of the RotatedRect. They must be given in order (either clockwise or anticlockwise).
+            </summary>
+        </member>
         <member name="M:OpenCvSharp.RotatedRect.Points">
             <summary>
             returns 4 vertices of the rectangle
@@ -19695,6 +19664,11 @@
             <returns></returns>
         </member>
         <member name="T:OpenCvSharp.Scalar">
+            <summary>
+            Template class for a 4-element vector derived from Vec.
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Scalar.#ctor(System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Template class for a 4-element vector derived from Vec.
             </summary>
@@ -19728,31 +19702,22 @@
             <summary>
             
             </summary>
-            <param name="v0"></param>
+            <param name="val0"></param>
         </member>
         <member name="M:OpenCvSharp.Scalar.#ctor(System.Double,System.Double)">
             <summary>
             
             </summary>
-            <param name="v0"></param>
-            <param name="v1"></param>
+            <param name="val0"></param>
+            <param name="val1"></param>
         </member>
         <member name="M:OpenCvSharp.Scalar.#ctor(System.Double,System.Double,System.Double)">
             <summary>
             
             </summary>
-            <param name="v0"></param>
-            <param name="v1"></param>
-            <param name="v2"></param>
-        </member>
-        <member name="M:OpenCvSharp.Scalar.#ctor(System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            
-            </summary>
-            <param name="v0"></param>
-            <param name="v1"></param>
-            <param name="v2"></param>
-            <param name="v3"></param>
+            <param name="val0"></param>
+            <param name="val1"></param>
+            <param name="val2"></param>
         </member>
         <member name="M:OpenCvSharp.Scalar.FromRgb(System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -19772,34 +19737,6 @@
             Gets random color
             </summary>
             <param name="rng">.NET random number generator. This method uses Random.NextBytes()</param>
-        </member>
-        <member name="M:OpenCvSharp.Scalar.Equals(OpenCvSharp.Scalar)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Scalar.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Scalar.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Scalar.ToString">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Scalar.op_Equality(OpenCvSharp.Scalar,OpenCvSharp.Scalar)">
-            <summary>
-            
-            </summary>
-            <param name="s1"></param>
-            <param name="s2"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenCvSharp.Scalar.op_Inequality(OpenCvSharp.Scalar,OpenCvSharp.Scalar)">
-            <summary>
-            
-            </summary>
-            <param name="s1"></param>
-            <param name="s2"></param>
-            <returns></returns>
         </member>
         <member name="M:OpenCvSharp.Scalar.All(System.Double)">
             <summary>
@@ -20542,26 +20479,24 @@
             </summary>
         </member>
         <member name="T:OpenCvSharp.Size">
-            <summary>
+             <summary>
             
-            </summary>
-        </member>
-        <member name="F:OpenCvSharp.Size.Width">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:OpenCvSharp.Size.Height">
-            <summary>
-            
-            </summary>
+             </summary>
         </member>
         <member name="M:OpenCvSharp.Size.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="width"></param>
-            <param name="height"></param>
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:OpenCvSharp.Size.Width">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:OpenCvSharp.Size.Height">
+             <summary>
+            
+             </summary>
         </member>
         <member name="M:OpenCvSharp.Size.#ctor(System.Double,System.Double)">
             <summary>
@@ -20570,117 +20505,75 @@
             <param name="width"></param>
             <param name="height"></param>
         </member>
-        <member name="F:OpenCvSharp.Size.Zero">
-            <summary>
-            Zero size
+        <member name="M:OpenCvSharp.Size.op_Explicit(OpenCvSharp.Size2d)~OpenCvSharp.Size">
+            <summary> 
             </summary>
+            <param name="size"></param>
         </member>
-        <member name="M:OpenCvSharp.Size.op_Equality(OpenCvSharp.Size,OpenCvSharp.Size)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the members of each object are equal.
+        <member name="M:OpenCvSharp.Size.op_Explicit(OpenCvSharp.Size2f)~OpenCvSharp.Size">
+            <summary> 
             </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are equal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Size.op_Inequality(OpenCvSharp.Size,OpenCvSharp.Size)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the members of each object are unequal.
-            </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are unequal; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenCvSharp.Size.Equals(OpenCvSharp.Size)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Size.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Size.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Size.ToString">
-            <inheritdoc />
+            <param name="size"></param>
         </member>
         <member name="T:OpenCvSharp.Size2d">
-            <summary>
+             <summary>
             
-            </summary>
-        </member>
-        <member name="F:OpenCvSharp.Size2d.Width">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:OpenCvSharp.Size2d.Height">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:OpenCvSharp.Size2d.#ctor(System.Single,System.Single)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="width"></param>
-            <param name="height"></param>
+             </summary>
         </member>
         <member name="M:OpenCvSharp.Size2d.#ctor(System.Double,System.Double)">
-            <summary>
-            Constructor
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:OpenCvSharp.Size2d.Width">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:OpenCvSharp.Size2d.Height">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:OpenCvSharp.Size2d.op_Implicit(OpenCvSharp.Size)~OpenCvSharp.Size2d">
+            <summary> 
             </summary>
-            <param name="width"></param>
-            <param name="height"></param>
+            <param name="size"></param>
         </member>
-        <member name="M:OpenCvSharp.Size2d.op_Equality(OpenCvSharp.Size2d,OpenCvSharp.Size2d)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the members of each object are equal.
+        <member name="M:OpenCvSharp.Size2d.op_Implicit(OpenCvSharp.Size2f)~OpenCvSharp.Size2d">
+            <summary> 
             </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are equal; otherwise, false.</returns>
+            <param name="size"></param>
         </member>
-        <member name="M:OpenCvSharp.Size2d.op_Inequality(OpenCvSharp.Size2d,OpenCvSharp.Size2d)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the members of each object are unequal.
+        <member name="M:OpenCvSharp.Size2d.ToSize">
+            <summary> 
             </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are unequal; otherwise, false.</returns>
+            <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Size2d.Equals(OpenCvSharp.Size2d)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Size2d.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Size2d.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Size2d.ToString">
-            <inheritdoc />
+        <member name="M:OpenCvSharp.Size2d.ToSize2f">
+            <summary> 
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:OpenCvSharp.Size2f">
-            <summary>
+             <summary>
             
-            </summary>
-        </member>
-        <member name="F:OpenCvSharp.Size2f.Width">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:OpenCvSharp.Size2f.Height">
-            <summary>
-            
-            </summary>
+             </summary>
         </member>
         <member name="M:OpenCvSharp.Size2f.#ctor(System.Single,System.Single)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="width"></param>
-            <param name="height"></param>
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:OpenCvSharp.Size2f.Width">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:OpenCvSharp.Size2f.Height">
+             <summary>
+            
+             </summary>
         </member>
         <member name="M:OpenCvSharp.Size2f.#ctor(System.Double,System.Double)">
             <summary>
@@ -20689,35 +20582,32 @@
             <param name="width"></param>
             <param name="height"></param>
         </member>
-        <member name="M:OpenCvSharp.Size2f.op_Equality(OpenCvSharp.Size2f,OpenCvSharp.Size2f)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the members of each object are equal.
+        <member name="M:OpenCvSharp.Size2f.op_Implicit(OpenCvSharp.Size)~OpenCvSharp.Size2f">
+            <summary> 
             </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are equal; otherwise, false.</returns>
+            <param name="size"></param>
         </member>
-        <member name="M:OpenCvSharp.Size2f.op_Inequality(OpenCvSharp.Size2f,OpenCvSharp.Size2f)">
-            <summary>
-            Compares two CvPoint objects. The result specifies whether the members of each object are unequal.
+        <member name="M:OpenCvSharp.Size2f.op_Explicit(OpenCvSharp.Size2d)~OpenCvSharp.Size2f">
+            <summary> 
             </summary>
-            <param name="lhs">A Point to compare.</param>
-            <param name="rhs">A Point to compare.</param>
-            <returns>This operator returns true if the members of left and right are unequal; otherwise, false.</returns>
+            <param name="size"></param>
         </member>
-        <member name="M:OpenCvSharp.Size2f.Equals(OpenCvSharp.Size2f)">
-            <inheritdoc />
+        <member name="M:OpenCvSharp.Size2f.ToSize">
+            <summary> 
+            </summary>
+            <returns></returns>
         </member>
-        <member name="M:OpenCvSharp.Size2f.Equals(System.Object)">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Size2f.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:OpenCvSharp.Size2f.ToString">
-            <inheritdoc />
+        <member name="M:OpenCvSharp.Size2f.ToSize2d">
+            <summary> 
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:OpenCvSharp.TermCriteria">
+            <summary>
+            The class defining termination criteria for iterative algorithms.
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.TermCriteria.#ctor(OpenCvSharp.CriteriaTypes,System.Int32,System.Double)">
             <summary>
             The class defining termination criteria for iterative algorithms.
             </summary>
@@ -20736,14 +20626,6 @@
             <summary>
             the desired accuracy
             </summary>
-        </member>
-        <member name="M:OpenCvSharp.TermCriteria.#ctor(OpenCvSharp.CriteriaTypes,System.Int32,System.Double)">
-            <summary>
-            full constructor
-            </summary>
-            <param name="type"></param>
-            <param name="maxCount"></param>
-            <param name="epsilon"></param>
         </member>
         <member name="M:OpenCvSharp.TermCriteria.Both(System.Int32,System.Double)">
             <summary>
@@ -27642,6 +27524,27 @@
             thus, can be used directly for pixel interpolation. Otherwise, the function finds the inverse transform from map_matrix. 
             </summary>
         </member>
+        <member name="T:OpenCvSharp.LineSegmentDetectorModes">
+            <summary>
+            Variants of Line Segment %Detector
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LineSegmentDetectorModes.RefineNone">
+            <summary>
+            No refinement applied
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LineSegmentDetectorModes.RefineStd">
+            <summary>
+            Standard refinement is applied. E.g. breaking arches into smaller straighter line approximations.
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LineSegmentDetectorModes.RefineAdv">
+            <summary>
+            Advanced refinement. Number of false alarms is calculated, lines are
+            refined through increase of precision, decrement in size, etc.
+            </summary>
+        </member>
         <member name="T:OpenCvSharp.LineTypes">
             <summary>
             Type of the line
@@ -28415,6 +28318,87 @@
             </summary>
             <param name="pos"></param>
             <param name="ptr"></param>
+        </member>
+        <member name="T:OpenCvSharp.LineSegmentDetector">
+            <summary>
+            Line segment detector class
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.LineSegmentDetector.ptrObj">
+            <summary>
+            cv::Ptr&lt;LineSegmentDetector&gt;
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.LineSegmentDetector.#ctor(System.IntPtr)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.LineSegmentDetector.Create(OpenCvSharp.LineSegmentDetectorModes,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            Creates a smart pointer to a LineSegmentDetector object and initializes it.
+            </summary>
+            <param name="refine">The way found lines will be refined, see cv::LineSegmentDetectorModes</param>
+            <param name="scale">The scale of the image that will be used to find the lines. Range (0..1].</param>
+            <param name="sigmaScale">Sigma for Gaussian filter. It is computed as sigma = _sigma_scale/_scale.</param>
+            <param name="quant">Bound to the quantization error on the gradient norm.</param>
+            <param name="angTh">Gradient angle tolerance in degrees.</param>
+            <param name="logEps">Detection threshold: -log10(NFA) \> log_eps. 
+            Used only when advancent refinement is chosen.</param>
+            <param name="densityTh">Minimal density of aligned region points in the enclosing rectangle.</param>
+            <param name="nBins">Number of bins in pseudo-ordering of gradient modulus.</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.LineSegmentDetector.DisposeManaged">
+            <summary>
+            Releases managed resources
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.LineSegmentDetector.Detect(OpenCvSharp.InputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray,OpenCvSharp.OutputArray)">
+            <summary>
+            Finds lines in the input image.
+            This is the output of the default parameters of the algorithm on the above shown image.
+            </summary>
+            <param name="image">A grayscale (CV_8UC1) input image. </param>
+            <param name="lines">A vector of Vec4i or Vec4f elements specifying the beginning and ending point of a line. 
+            Where Vec4i/Vec4f is (x1, y1, x2, y2), point 1 is the start, point 2 - end. Returned lines are strictly oriented depending on the gradient.</param>
+            <param name="width">Vector of widths of the regions, where the lines are found. E.g. Width of line.</param>
+            <param name="prec">Vector of precisions with which the lines are found.</param>
+            <param name="nfa">Vector containing number of false alarms in the line region, 
+            with precision of 10%. The bigger the value, logarithmically better the detection.</param>
+        </member>
+        <member name="M:OpenCvSharp.LineSegmentDetector.Detect(OpenCvSharp.InputArray,OpenCvSharp.Vec4f[]@,System.Double[]@,System.Double[]@,System.Double[]@)">
+            <summary>
+            Finds lines in the input image.
+            This is the output of the default parameters of the algorithm on the above shown image.
+            </summary>
+            <param name="image">A grayscale (CV_8UC1) input image. </param>
+            <param name="lines">A vector of Vec4i or Vec4f elements specifying the beginning and ending point of a line. 
+            Where Vec4i/Vec4f is (x1, y1, x2, y2), point 1 is the start, point 2 - end. Returned lines are strictly oriented depending on the gradient.</param>
+            <param name="width">Vector of widths of the regions, where the lines are found. E.g. Width of line.</param>
+            <param name="prec">Vector of precisions with which the lines are found.</param>
+            <param name="nfa">Vector containing number of false alarms in the line region, 
+            with precision of 10%. The bigger the value, logarithmically better the detection.</param>
+        </member>
+        <member name="M:OpenCvSharp.LineSegmentDetector.DrawSegments(OpenCvSharp.InputOutputArray,OpenCvSharp.InputArray)">
+            <summary>
+            Draws the line segments on a given image.
+            </summary>
+            <param name="image">The image, where the liens will be drawn. 
+            Should be bigger or equal to the image, where the lines were found.</param>
+            <param name="lines">A vector of the lines that needed to be drawn.</param>
+        </member>
+        <member name="M:OpenCvSharp.LineSegmentDetector.CompareSegments(OpenCvSharp.Size,OpenCvSharp.InputArray,OpenCvSharp.InputArray,OpenCvSharp.InputOutputArray)">
+            <summary>
+            Draws two groups of lines in blue and red, counting the non overlapping (mismatching) pixels.
+            </summary>
+            <param name="size">The size of the image, where lines1 and lines2 were found.</param>
+            <param name="lines1">The first group of lines that needs to be drawn. It is visualized in blue color.</param>
+            <param name="lines2">The second group of lines. They visualized in red color.</param>
+            <param name="image">Optional image, where the lines will be drawn. 
+            The image should be color(3-channel) in order for lines1 and lines2 to be drawn 
+            in the above mentioned colors.</param>
+            <returns></returns>
         </member>
         <member name="T:OpenCvSharp.CircleSegment">
             <summary>

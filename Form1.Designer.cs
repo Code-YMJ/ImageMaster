@@ -73,8 +73,12 @@ namespace ImageMaster
             this.label5 = new System.Windows.Forms.Label();
             this.tbSaveFileName = new System.Windows.Forms.TextBox();
             this.cbChangeName = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbOrigin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddFolder
@@ -170,9 +174,9 @@ namespace ImageMaster
             // 
             // pbOrigin
             // 
-            this.pbOrigin.Location = new System.Drawing.Point(694, 13);
+            this.pbOrigin.Location = new System.Drawing.Point(3, 4);
             this.pbOrigin.Name = "pbOrigin";
-            this.pbOrigin.Size = new System.Drawing.Size(480, 320);
+            this.pbOrigin.Size = new System.Drawing.Size(528, 310);
             this.pbOrigin.TabIndex = 11;
             this.pbOrigin.TabStop = false;
             // 
@@ -234,9 +238,9 @@ namespace ImageMaster
             // 
             // pbResult
             // 
-            this.pbResult.Location = new System.Drawing.Point(1253, 12);
+            this.pbResult.Location = new System.Drawing.Point(3, 3);
             this.pbResult.Name = "pbResult";
-            this.pbResult.Size = new System.Drawing.Size(480, 320);
+            this.pbResult.Size = new System.Drawing.Size(480, 309);
             this.pbResult.TabIndex = 19;
             this.pbResult.TabStop = false;
             // 
@@ -434,11 +438,31 @@ namespace ImageMaster
             this.cbChangeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbChangeName.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.pbOrigin);
+            this.panel1.Location = new System.Drawing.Point(694, 13);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(538, 319);
+            this.panel1.TabIndex = 43;
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.pbResult);
+            this.panel2.Location = new System.Drawing.Point(1244, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(489, 320);
+            this.panel2.TabIndex = 44;
+            // 
             // frmImageMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1745, 614);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbChangeName);
             this.Controls.Add(this.tbSaveFileName);
             this.Controls.Add(this.label5);
@@ -461,7 +485,6 @@ namespace ImageMaster
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSavePath);
             this.Controls.Add(this.btnConvertImage);
-            this.Controls.Add(this.pbResult);
             this.Controls.Add(this.tbSavePath);
             this.Controls.Add(this.lbFlag);
             this.Controls.Add(this.lbRV);
@@ -469,7 +492,6 @@ namespace ImageMaster
             this.Controls.Add(this.cbThresholdFlag);
             this.Controls.Add(this.tbRV);
             this.Controls.Add(this.tbThreshold);
-            this.Controls.Add(this.pbOrigin);
             this.Controls.Add(this.cbUseMorphology);
             this.Controls.Add(this.cbUseEdgeFilter);
             this.Controls.Add(this.cbUseTreshold);
@@ -484,6 +506,8 @@ namespace ImageMaster
             this.Text = "Image Master";
             ((System.ComponentModel.ISupportInitialize)(this.pbOrigin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbResult)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,6 +559,8 @@ namespace ImageMaster
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbSaveFileName;
         private System.Windows.Forms.CheckBox cbChangeName;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
